@@ -1,10 +1,10 @@
 \def\proposal{}
-\def\degree{Master}                         %TODO adjust to your program
+\def\degree{Master}
 \def\program{Informatics}
-\def\title{Using Machine Learning for Feedback on Programming Exercises in Large Courses}		    %TODO add title in English
-\def\titleGer{Feedback zu Programmierübungen in großen Kursen durch maschinelles Lernen}	            %TODO add title in German
+\def\title{Generalizing the Machine-Learning Based Exercise Feedback System in Athene}
+\def\titleGer{Generalisierung des Machine Learning Feedbacksystems für verschiedene Übungstypen in Athene}
 \def\supervisor{Prof. Dr. Stephan Krusche}
-\def\advisor{Maximilian Sölch, M.Sc.}  %TODO add advisor name
-\def\author{Paul Schwind}			    %TODO add author name
+\def\advisor{Maximilian Sölch, M.Sc.}
+\def\author{Paul Schwind}
 \def\date{(handover date)}		    %TODO add submission / handover date
-\def\startdate{March 15, 2023}		    %TODO add startdate
+\def\startdate{March 15, 2023}
