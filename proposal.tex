@@ -33,6 +33,7 @@
 
 %------- Start of Proposal -------
 \section*{Introduction}
+
         \missing{ Introduction
                 \begin{itemize}
                         \item Introduce the reader to the general setting
@@ -60,9 +61,8 @@ Intro and Problem:
 The number of students in Computer Science courses at universities is increasing steadily. This fact also means that the number of exercise submissions in those courses has increased drastically.
 These circumstances pose a problem for the instructors, as it is hard to give feedback to all students individually. There exist courses using automatically tested exercises, but those are often difficult to create and get right. Manually graded exercises can provide more individuality, but it is hard to give feedback to all students.
 
-Artemis is an online learning platform for exercise management. It is being developed at the Technical University of Munich and used by several other universities in Germany. Athene, a system for automatically generating feedback on text and modeling exercises, is integrated into Artemis.
-
-TODO: one more sentence about Athene. Also something like "It might also provide a nice base for the problem of automating feedback on programming exercises."
+Artemis is an online learning platform for exercise management. It is being developed at the Technical University of Munich and used by several other universities in Germany. Athene, a system for automatically generating feedback on text and modeling exercises, is integrated into Artemis. It works by essentially clustering submissions into groups using machine learning techniques and then choosing feedback from the same cluster. 
+Athene cannot provide feedback on programming exercises, and it is currently hard to extend as it only supports one approach to each of the steps performed in the feedback generation process.
 
 \section*{Problem}
         \missing{ Problem description
