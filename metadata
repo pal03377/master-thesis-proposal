@@ -6,5 +6,5 @@
 \def\supervisor{Prof. Dr. Stephan Krusche}
 \def\advisor{Maximilian Sölch, M.Sc.}
 \def\author{Paul Schwind}
-\def\date{(handover date)}		    %TODO add submission / handover date
+\def\date{September 15, 2023}
 \def\startdate{March 15, 2023}
