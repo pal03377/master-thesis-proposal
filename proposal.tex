@@ -49,7 +49,7 @@ Athene, a system for automatically generating feedback on text exercises, is int
 \end{itemize}
 
 Each of these steps is currently performed by one microservice, all of which are written in Python and implement one approach to each of the steps.
-In addition, there is a tracking service for logging the feedback generation process implemented by Petry~\cite{atheneTracking} and a load balancer for distributing the load between the microservices~\cite{atheneLoadBalancer}.
+In addition, there is a tracking service for logging the feedback generation process~\cite{atheneTracking} and a load balancer for distributing the load between the microservices~\cite{atheneLoadBalancer}.
 Currently, Athene sends a list of clusters and a list of segments to Artemis. Artemis then chooses feedbacks from the same cluster for the suggestions.
 
 
@@ -78,7 +78,7 @@ Two types of actors could have problems with the current status of Athene:
 As student numbers will continue to rise (especially in Computer Science courses), the number of feedbacks which tutors have to give will increase as well. Extending Athene to support programming exercises would allow tutors to profit from its feedback generation capabilities and save them a lot of time.
 
 Generalizing each of the steps in the feedback generation process would also allow developers to integrate additional approaches and features into Athene more easily.
-For example, the clustering step could be replaced by a different clustering algorithm, which might improve the quality of the feedback suggestions. Past work like an evaluation of the helpfulness of feedbacks given by Athene by Petry~\cite{atheneTracking} or efforts to make it more language-independent~\cite{atheneLanguage} could also potentially have profited from more generalization.
+For example, the clustering step could be replaced by a different clustering algorithm, which might improve the quality of the feedback suggestions. Past work like an evaluation of the helpfulness of feedbacks given by Athene~\cite{atheneTracking} or efforts to make it more language-independent~\cite{atheneLanguage} could also potentially have profited from more generalization.
 
 Furthermore, groundwork on a more flexible system might enable relatively new innovations like ChatGPT to be used in Athene, if the feedback suggestion generation not only supports choosing existing feedbacks, but also generating new ones.
 
