@@ -33,31 +33,10 @@
 
 %------- Start of Proposal -------
 \section*{Introduction}
+% - Introduce the reader to the general setting
+% - What is the environment?
+% - What are the tools in use?
 
-        \missing{ Introduction
-                \begin{itemize}
-                        \item Introduce the reader to the general setting
-                        \item What is the environment?
-                        \item What are the tools in use?
-                \end{itemize}
-        }
-Intro and Problem:
-\begin{itemize}
-        \item Number of students in Informatics is increasing
-        \item Exercises are important
-        \item in large courses it is hard to give feedback individually
-        \item There are courses with automatically tested exercises
-        \item Those tests are difficult to create and get right - students often complain about some of them
-        \item Manually graded exercises are more flexible, but it is hard to give feedback to all students
-        \item There exists a system for automatically generating feedback on text exercises called Athene, which is integrated into the LMS Artemis
-        \item This system however cannot provide feedback on programming exercises, and it is currently hard to extend as it only supports a single approach to each of the following steps performed:
-        \begin{itemize}
-                \item Segmenting the exercise into parts
-                \item Embedding the parts to a vector representation
-                \item Clustering the vector representations
-                \item Choosing feedback from the same cluster (which currently is not even done within Athene)
-        \end{itemize}
-\end{itemize}
 The number of students in Computer Science courses at universities is increasing steadily. This fact also means that the number of exercise submissions in those courses has increased drastically.
 These circumstances pose a problem for the instructors, as it is hard to give feedback to all students individually. There exist courses using automatically tested exercises, but those are often difficult to create and get right. Manually graded exercises can provide more individuality, but it is hard to give feedback to all students.
 
@@ -75,22 +54,19 @@ Currently, Athene sends a list of clusters and a list of segments to Artemis. Ar
 
 
 \section*{Problem}
-    \missing{ Problem description
-        \begin{itemize}
-            \item What is/are the problem(s)? 
-            \item Identify the actors and use these to describe how the problem negatively influences them.
-            \item Do not present solutions or alternatives yet!
-            \item Present the negative consequences in detail 
-        \end{itemize}
-    }
+% - What is/are the problem(s)? 
+% - Identify the actors and use these to describe how the problem negatively influences them.
+% - Do not present solutions or alternatives yet!
+% - Present the negative consequences in detail
 
 % TODO: Describe the GENERAL problem (Athene is a bit inflexible and bound to one approach for each step in the feedback generation process)
+Currently, Athene is bound to one approach for each step in the feedback generation process. This decreases the flexibility and extensibility of the system and should be improved.
+On a more practical level, Athene does not support programming exercises, which are a common type of exercise in Computer Science courses.
 
-Athene currently cannot provide feedback on programming exercises, and it is hard to extend as it only supports one approach to each of the steps performed in the feedback generation process.
-
-There are two types of actors who could have problems with the current state of Athene:
+There are two types of actors who could have problems with the current status of Athene:
 \begin{itemize}
     \item \textbf{Tutors} in courses with manually graded programming exercises: They cannot profit from Athene's feedback generation capabilities, as Athene does not support programming exercises. This means that they won't get any automatically generated feedback suggestions for programming exercises, which would save them a lot of time.
+    % TODO: Add statistics from papers about how useful feedbacks are and note that this could still be improved in the future, if the ground work is already there
     \item It is difficult for \textbf{Developers} of Athene to integrate additional approaches and features into Athene, as the system is currently bound to one approach for each step in the feedback generation process. 
     % TODO: Add that the feedback choice is currently in Artemis itself and therefore impossible to change independently
 \end{itemize}
