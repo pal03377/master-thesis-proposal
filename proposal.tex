@@ -49,7 +49,7 @@ Intro and Problem:
         \item There are courses with automatically tested exercises
         \item Those tests are difficult to create and get right - students often complain about some of them
         \item Manually graded exercises are more flexible, but it is hard to give feedback to all students
-        \item There exists a system for automatically generating feedback on text and modeling exercises called Athene, which is integrated into the LMS Artemis
+        \item There exists a system for automatically generating feedback on text exercises called Athene, which is integrated into the LMS Artemis
         \item This system however cannot provide feedback on programming exercises, and it is currently hard to extend as it only supports a single approach to each of the following steps performed:
         \begin{itemize}
                 \item Segmenting the exercise into parts
@@ -61,19 +61,39 @@ Intro and Problem:
 The number of students in Computer Science courses at universities is increasing steadily. This fact also means that the number of exercise submissions in those courses has increased drastically.
 These circumstances pose a problem for the instructors, as it is hard to give feedback to all students individually. There exist courses using automatically tested exercises, but those are often difficult to create and get right. Manually graded exercises can provide more individuality, but it is hard to give feedback to all students.
 
-Artemis is an online learning platform for exercise management. It is being developed at the Technical University of Munich and used by several other universities in Germany. Athene, a system for automatically generating feedback on text and modeling exercises, is integrated into Artemis. It works by essentially clustering submissions into groups using machine learning techniques and then choosing feedback from the same cluster. 
-Athene cannot provide feedback on programming exercises, and it is currently hard to extend as it only supports one approach to each of the steps performed in the feedback generation process.
+Artemis is an online learning platform for exercise management. It is being developed at the Technical University of Munich and used by several other universities in Germany. 
+Athene, a system for automatically generating feedback on text exercises, is integrated into Artemis. It works by essentially clustering submissions into groups using machine learning techniques and then choosing feedback from the same cluster. The actual steps in the feedback generation process are in detail~\cite{mlFeedbackOnTextualStudentAnswersInLargeCourses}:
+\begin{itemize}
+    \item \textbf{Segmentation} of the submission: Athene splits the submission into parts by topics, which are identified using the presence or absence of certain keywords.
+    \item \textbf{Language Embedding} of the parts: Athene embeds the parts to a vector representation using a pre-trained ELMo language model~\cite{deepContextualizedWordRepresentations}.
+    \item \textbf{Clustering} of the vector representations: Athene clusters the vector representations using the Hierarchical Density-Based Spatial Clustering algorithm~\cite{hdbsc}.
+\end{itemize}
+
+% also: load balancer, tracking, Artemis itself choosing the feedback, etc.
+
+Each of these steps is currently performed by one microservice, all of which are written in Python and implement one approach to each of the steps.
 
 \section*{Problem}
-        \missing{ Problem description
-                \begin{itemize}
-                        \item What is/are the problem(s)? 
-                        \item Identify the actors and use these to describe how the problem negatively influences them.
-                        \item Do not present solutions or alternatives yet!
-                        \item Present the negative consequences in detail 
-                \end{itemize}
-        }
-        
+    \missing{ Problem description
+        \begin{itemize}
+            \item What is/are the problem(s)? 
+            \item Identify the actors and use these to describe how the problem negatively influences them.
+            \item Do not present solutions or alternatives yet!
+            \item Present the negative consequences in detail 
+        \end{itemize}
+    }
+
+% TODO: Describe the GENERAL problem (Athene is a bit inflexible and bound to one approach for each step in the feedback generation process)
+
+Athene currently cannot provide feedback on programming exercises, and it is hard to extend as it only supports one approach to each of the steps performed in the feedback generation process.
+
+There are two types of actors who could have problems with the current state of Athene:
+\begin{itemize}
+    \item \textbf{Tutors} in courses with manually graded programming exercises: They cannot profit from Athene's feedback generation capabilities, as Athene does not support programming exercises. This means that they won't get any automatically generated feedback suggestions for programming exercises, which would save them a lot of time.
+    \item It is difficult for \textbf{Developers} of Athene to integrate additional approaches and features into Athene, as the system is currently bound to one approach for each step in the feedback generation process. 
+    % TODO: Add that the feedback choice is currently in Artemis itself and therefore impossible to change independently
+\end{itemize}
+
 \section*{Motivation}
         \missing{ Thesis Motivation
                 \begin{itemize}
