@@ -1,7 +1,25 @@
 
-@article{mlFeedbackOnTextualStudentAnswersInLargeCourses,
+@inproceedings{cofee,
+  author    = {Bernius, Jan Philip and Krusche, Stephan and Bruegge, Bernd},
+  title     = {A Machine Learning Approach for Suggesting Feedback in Textual Exercises in Large Courses},
+  year      = {2021},
+  isbn      = {9781450382151},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  url       = {https://doi.org/10.1145/3430895.3460135},
+  doi       = {10.1145/3430895.3460135},
+  abstract  = {Open-ended textual exercises facilitate the comprehension of problem-solving skills. Students can learn from their mistakes when teachers provide individual feedback. However, courses with hundreds of students cause a heavy workload for teachers: providing individual feedback is mostly a manual, repetitive, and time-consuming activity.This paper presents CoFee, a machine learning approach designed to suggest computer-aided feedback in open-ended textual exercises. The approach uses topic modeling to split student answers into text segments and language embeddings to transform these segments. It then applies clustering to group the text segments by similarity so that the same feedback can be applied to all segments within the same cluster.We implemented this approach in a reference implementation called Athene and integrated it into Artemis. We used Athene to review 17 textual exercises in two large courses at the Technical University of Munich with 2,300 registered students and 53 teachers. On average, Athene suggested feedback for 26% of the submissions. Accordingly, 85% of these suggestions were accepted by the teachers, 5% were extended with a comment and then accepted, and 10% were changed.},
+  booktitle = {Proceedings of the Eighth ACM Conference on Learning @ Scale},
+  pages     = {173–182},
+  numpages  = {10},
+  keywords  = {software engineering, grading, education, learning, interactive learning, feedback, assessment support system, automatic assessment},
+  location  = {Virtual Event, Germany},
+  series    = {L@S '21}
+}
+
+@article{cofee2,
   abstract   = {Many engineering disciplines require problem-solving skills, which cannot be learned by memorization alone. Open-ended textual exercises allow students to acquire these skills. Students can learn from their mistakes when instructors provide individual feedback. However, grading these exercises is often a manual, repetitive, and time-consuming activity. The number of computer science students graduating per year has steadily increased over the last decade. This rise has led to large courses that cause a heavy workload for instructors, especially if they provide individual feedback to students. This article presents CoFee, a framework to generate and suggest computer-aided feedback for textual exercises based on machine learning. CoFee utilizes a segment-based grading concept, which links feedback to text segments. CoFee automates grading based on topic modeling and an assessment knowledge repository acquired during previous assessments. A language model builds an intermediate representation of the text segments. Hierarchical clustering identifies groups of similar text segments to reduce the grading overhead. We first demonstrated the CoFee framework in a small laboratory experiment in 2019, which showed that the grading overhead could be reduced by 85%. This experiment confirmed the feasibility of automating the grading process for problem-solving exercises. We then evaluated CoFee in a large course at the Technical University of Munich from 2019 to 2021, with up to 2, 200 enrolled students per course. We collected data from 34 exercises offered in each of these courses. On average, CoFee suggested feedback for 45% of the submissions. 92% (Positive Predictive Value) of these suggestions were precise and, therefore, accepted by the instructors.},
-  author     = {Jan Philip Bernius and Stephan Krusche and Bernd Bruegge},
+  author     = {Bernius, Jan Philip and Krusche, Stephan and Bruegge, Bernd},
   doi        = {https://doi.org/10.1016/j.caeai.2022.100081},
   issn       = {2666-920X},
   journal    = {Computers and Education: Artificial Intelligence},
@@ -35,4 +53,11 @@
   number    = {},
   pages     = {33-42},
   doi       = {10.1109/ICDMW.2017.12}
+}
+
+@misc{atheneTracking,
+  author  = {Petry, Jonas},
+  title   = {Exercise Assessment Management in Artemis by Students and Instructors},
+  year    = {2020},
+  note    = {Bachelor`s thesis at Technical University of Munich}
 }

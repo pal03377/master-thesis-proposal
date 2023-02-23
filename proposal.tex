@@ -62,16 +62,17 @@ The number of students in Computer Science courses at universities is increasing
 These circumstances pose a problem for the instructors, as it is hard to give feedback to all students individually. There exist courses using automatically tested exercises, but those are often difficult to create and get right. Manually graded exercises can provide more individuality, but it is hard to give feedback to all students.
 
 Artemis is an online learning platform for exercise management. It is being developed at the Technical University of Munich and used by several other universities in Germany. 
-Athene, a system for automatically generating feedback on text exercises, is integrated into Artemis. It works by essentially clustering submissions into groups using machine learning techniques and then choosing feedback from the same cluster. The actual steps in the feedback generation process are in detail~\cite{mlFeedbackOnTextualStudentAnswersInLargeCourses}:
+Athene, a system for automatically generating feedback on text exercises, is integrated into Artemis. It works by essentially clustering submissions into groups using machine learning techniques and then choosing feedback from the same cluster. The actual steps in the feedback generation process are in detail~\cite{cofee}:
 \begin{itemize}
     \item \textbf{Segmentation} of the submission: Athene splits the submission into parts by topics, which are identified using the presence or absence of certain keywords.
     \item \textbf{Language Embedding} of the parts: Athene embeds the parts to a vector representation using a pre-trained ELMo language model~\cite{deepContextualizedWordRepresentations}.
     \item \textbf{Clustering} of the vector representations: Athene clusters the vector representations using the Hierarchical Density-Based Spatial Clustering algorithm~\cite{hdbsc}.
 \end{itemize}
 
-% also: load balancer, tracking, Artemis itself choosing the feedback, etc.
-
 Each of these steps is currently performed by one microservice, all of which are written in Python and implement one approach to each of the steps.
+In addition, there is a tracking service for logging the feedback generation process implemented by Petry~\cite{atheneTracking} and a load balancer for distributing the load between the microservices~\cite{atheneLoadBalancer}.
+Currently, Athene sends a list of clusters and a list of segments to Artemis. Artemis then chooses feedbacks from the same cluster for the suggestions.
+
 
 \section*{Problem}
     \missing{ Problem description
