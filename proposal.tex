@@ -62,12 +62,11 @@ Currently, Athene sends a list of clusters and a list of segments to Artemis. Ar
 Currently, Athene is bound to one approach for each step in the feedback generation process. This decreases the flexibility and extensibility of the system and should be improved.
 On a more practical level, Athene does not support programming exercises, which are a common type of exercise in Computer Science courses.
 
-There are two types of actors who could have problems with the current status of Athene:
+Two types of actors could have problems with the current status of Athene:
 \begin{itemize}
     \item \textbf{Tutors} in courses with manually graded programming exercises: They cannot profit from Athene's feedback generation capabilities, as Athene does not support programming exercises. This means that they won't get any automatically generated feedback suggestions for programming exercises, which would save them a lot of time.
-    For textual exercises, Athene currently provides feedback suggestions for around 45\% of the submissions~\cite{cofee2}. This number might be improved even further in the future, if the system is generalized to support different approaches for each step in the feedback generation process.
-    \item It is difficult for \textbf{Developers} of Athene to integrate additional approaches and features into Athene, as the system is currently bound to one approach for each step in the feedback generation process. The choice of the feedback suggestion in the end is also done by Artemis (outside of Athene), which makes it impossible to change the feedback suggestion independently of Artemis.
-    % TODO: Reference existing theses where this might have been a problem
+    For textual exercises, Athene currently provides feedback suggestions for around 45\% of the submissions~\cite{cofee2}. This number might be improved even further in the future if the system is generalized to support different approaches for each step in the feedback generation process.
+    \item It is difficult for \textbf{Developers} of Athene to integrate additional approaches and features into Athene, as the system is currently bound to one approach for each step in the feedback generation process. The choice of the feedback suggestion is also done by Artemis (outside of Athene), which makes it impossible to change the feedback suggestion independently of Artemis.
 \end{itemize}
 
 \section*{Motivation}
@@ -79,7 +78,9 @@ There are two types of actors who could have problems with the current status of
                         \item If applicable, motivate with existing research, previous work 
                 \end{itemize}
         }
+As student numbers will continue to rise (especially in Computer Science courses), the number of feedbacks which tutors have to give will increase as well.
 % TODO: link new approaches in the past / extensions (BA thesis, master thesis, etc.)
+% TODO: Ground work might enable new innovations like GPT to be used in Athene, if the feedback suggestion generation not only supports choosing existing feedbacks, but also generating new ones.
 
 \section*{Objective}
         \missing{ Thesis Objective
