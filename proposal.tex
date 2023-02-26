@@ -59,7 +59,15 @@ Athene, a system for automatically generating feedback on text exercises, is int
 
 Each of these steps is currently performed by one microservice, all of which are written in Python and implement one approach to each of the steps.
 In addition, there is a tracking service for logging the feedback generation process~\cite{atheneTracking} and a load balancer for distributing the load between the microservices~\cite{atheneLoadBalancer}.
-Currently, Athene sends a list of clusters and a list of segments to Artemis. Artemis then chooses feedbacks from the same cluster for the suggestions.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/proposal/deployment-diagram.pdf}
+    \caption{Rough overview of the current Athene and Artemis deployment setup: The \textit{Athene Subsystem} chooses feedback based on clusters sent by the \textit{Athene Server} after the feedback processing. Tutors later access those feedbacks via the \textit{Artemis Server}.}
+    \label{fig:atheneArtemisDeployment}
+\end{figure}
+
+Currently, Athene sends a list of clusters and a list of segments to Artemis. Artemis then chooses feedbacks from the same cluster for the suggestions. The setup is also shown in~\cref{fig:atheneArtemisDeployment}.
 
 
 \section*{Problem}
