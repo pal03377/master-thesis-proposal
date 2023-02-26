@@ -119,21 +119,27 @@ By moving the actual choice of feedbacks from Artemis to Athene, we want to make
 % - Make sure the work-items are measurable and deliverable 
 % - No writing related tasks! (e.g. "Write Analysis Chapter")
 
-The following schedule roughly outlines the work items for the thesis.
+The following schedule roughly outlines the work items for the thesis. It will start on March 15th, 2023 and last for 6 months, roughly 26 weeks. The schedule might be subject to change.
 
 \begin{itemize}
-    \item \textbf{Generalize} the existing microservices for segmentation, embedding and clustering in Athene: It should be possible to easily switch between internal modules.
-    \item \textbf{Move the actual choice of feedbacks} from Artemis to a new microservice within Athene: It should offer more general API endpoints for storing submissions, for storing feedbacks and for providing suggestions. Artemis should use these endpoints instead of the current ones.
-    \item \textbf{Evaluate} different possibilities for segmenting, embedding and clustering programming exercises. Implement promising approaches and integrate them into Athene. % Maybe this should be first?
-    \item Adding support for \textbf{programming exercises} in Athene:
+    \item \textit{1 week:} Familiarize with the existing code base of Athene and Artemis, especially the feedback choice within Artemis.
+    \item \textit{4 weeks:} \textbf{Generalize} the existing microservices for segmentation, embedding and clustering in Athene: It should be possible to easily switch between internal modules.
+    \item \textit{6 weeks:} \textbf{Move the actual choice of feedbacks} from Artemis to a new microservice within Athene: It should offer more general API endpoints for storing submissions, for storing feedbacks and for providing suggestions. Artemis should use these endpoints instead of the current ones.
     \begin{itemize}
-        \item Add support for programming exercise segmentation, embedding and clustering as well as feedback suggestion generation to Athene
-        \item Implement communication between Artemis and Athene for programming exercises into Artemis
-        \item Add support for displaying automatic feedback suggestions for programming exercises in Artemis
+        \item \textit{2 weeks:} \textbf{Re-Implement} the new microservice in Athene. It should be possible to switch to any module for the feedback choice as for the other microservices as before. The selection should behave like it currently does in Artemis, but it should be written in Python instead of Java.
+        \item \textit{3 weeks:} \textbf{Replace} the current feedback choice in Artemis with the new microservice.
+        \item \textit{1 week:} \textbf{Test} the new microservice and the changes in Artemis. Make sure that the functionality of Artemis is not affected by the changes.
     \end{itemize}
-    \item \textbf{Integrate} feedback suggestions \textbf{into the Themis iPad app}: It should be able to display the programming feedback suggestions from Athene.
-    \item Implement \textbf{improvements and bug fixes} still necessary for a stable release of Athene.
-    \item Write \textbf{documentation and the thesis} for the project.
+    \item \textit{Within the first 11 weeks:} \textbf{Evaluate} different possibilities for segmenting, embedding and clustering programming exercises. % Maybe this should be first?
+    \item \textit{6 weeks:} Add support for \textbf{programming exercises} in Athene:
+    \begin{itemize}
+        \item \textit{4 weeks:} Add support for programming exercise segmentation, embedding and clustering as well as feedback suggestion generation to Athene
+        \item \textit{1 week:} Implement communication between Artemis and Athene for programming exercises into Artemis
+        \item \textit{1 week:} Add support for displaying automatic feedback suggestions for programming exercises in Artemis
+    \end{itemize}
+    \item \textit{2 weeks:} \textbf{Integrate} feedback suggestions \textbf{into the Themis iPad app}: It should be able to display the programming feedback suggestions from Athene.
+    \item \textit{3 weeks:} Implement \textbf{improvements and bug fixes} still necessary for a stable release of Athene.
+    \item \textit{4 weeks:} Write \textbf{documentation and the (remaining) thesis} for the project.
 \end{itemize}
 
 
