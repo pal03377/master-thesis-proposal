@@ -41,7 +41,7 @@
 The number of students in Computer Science courses at universities is increasing steadily. At the Technical University of Munich, the number of full-time students\footnote{i.e., full-time equivalents} has increased by more than 2,400 within five year recently~\cite{tumInZahlen2020}. This fact also means that the number of exercise submissions in Informatics courses has increased drastically.
 These circumstances pose a problem for the instructors, as it is hard to give feedback to all students individually. There exist courses using automatically tested exercises, but those are often difficult to create and get right. Manually graded exercises can provide more individuality, but it is hard to give feedback to all students.
 
-Artemis is an online learning platform for exercise management~\cite{ArTEMiS}. It is being developed at the Technical University of Munich and used by several other universities in Germany. 
+Artemis is an online learning platform for exercise management supporting automatic code testing for grading~\cite{ArTEMiS}. It is being developed at the Technical University of Munich and used by several other universities in Germany. 
 
 \begin{figure}[ht]
     \centering
@@ -57,7 +57,7 @@ Athene, a system for automatically generating feedback on text exercises, is int
     \item \textbf{Clustering} of the vector representations: Athene clusters the vector representations using the Hierarchical Density-Based Spatial Clustering algorithm~\cite{hdbsc}.
 \end{itemize}
 
-Each of these steps is currently performed by one microservice, all of which are written in Python and implement one approach to each of the steps.
+All of these steps are currently performed microservices, each of which is written in Python and implements one approach to its respective step~\cite{cofee}.
 In addition, there is a tracking service for logging the feedback generation process~\cite{atheneTracking} and a load balancer for distributing the load between the microservices~\cite{atheneLoadBalancer}.
 
 \begin{figure}[ht]
@@ -77,13 +77,13 @@ Currently, Athene sends a list of clusters and a list of segments to Artemis. Ar
 % - Present the negative consequences in detail
 
 Currently, Athene is bound to one approach for each step in the feedback generation process. This decreases the flexibility and extensibility of the system and should be improved.
-On a more practical level, Athene does not support programming exercises, which are a common type of exercise in Computer Science courses.
+On a more practical level, Athene does not support programming exercises, which are a common type of exercise in Computer Science courses. Support for programming exercises is one of the main advantages of Artemis over other exercise management systems (like Moodle\footnote{\url{https://moodle.org}}), so it would be beneficial to extend Athene to support programming exercises as well.
 
 Two types of actors could have problems with the current status of Athene:
 \begin{itemize}
     \item \textbf{Tutors} in courses with manually graded programming exercises: They cannot profit from Athene's feedback generation capabilities, as Athene does not support programming exercises. This means that they won't get any automatically generated feedback suggestions for programming exercises, which would save them a lot of time.
     For textual exercises, Athene currently provides feedback suggestions for around 45\% of the submissions~\cite{cofee2}. This number might be improved even further in the future if the system is generalized to support different approaches for each step in the feedback generation process.
-    \item It is difficult for \textbf{Developers} of Athene to integrate additional approaches and features into Athene, as the system is currently bound to one approach for each step in the feedback generation process. The choice of the feedback suggestion is also done by Artemis (outside of Athene), which makes it impossible to change the feedback suggestion independently of Artemis.
+    \item It is difficult for \textbf{developers} of Athene to integrate additional approaches and features into Athene, as the system is currently bound to one approach for each step in the feedback generation process. The choice of the feedback suggestion is also done by Artemis (outside of Athene), which makes it impossible to change the feedback suggestion independently of Artemis.
 \end{itemize}
 
 \section*{Motivation}
@@ -97,19 +97,20 @@ As student numbers will continue to rise (especially in Computer Science courses
 Generalizing each of the steps in the feedback generation process would also allow developers to integrate additional approaches and features into Athene more easily.
 For example, the clustering step could be replaced by a different clustering algorithm, which might improve the quality of the feedback suggestions. Past work like an evaluation of the helpfulness of feedbacks given by Athene~\cite{atheneTracking} or efforts to make it more language-independent~\cite{atheneLanguage} could also potentially have profited from more generalization.
 
-Furthermore, groundwork on a more flexible system might enable relatively new innovations like ChatGPT to be used in Athene, if the feedback suggestion generation not only supports choosing existing feedbacks, but also generating new ones.
+Furthermore, groundwork on a more flexible system might enable relatively new innovations like ChatGPT\footnote{\url{https://openai.com/blog/chatgpt}} to be used in Athene, if the feedback suggestion generation does not only support choosing existing feedbacks, but also generating new ones.
 
 \section*{Objective}
 % - What are the main goals of your thesis?
 In the thesis, we want to enable Athene to support programming exercises and to generalize the steps in the feedback generation process. This should be done in a way that does not affect the current functionality of Athene and does not introduce any new bugs.
 
 One of the advantages of having the possibility to choose dynamically between different ways of performing the steps in the feedback generation process is that it would allow us to switch them as necessary to implement feedback suggestions for programming exercises as well. 
+
 As part of a project in the practical course \enquote{iPraktikum} at the Technical University of Munich, there already is a prototype for a system that can provide automatic feedback suggestions on programming exercises, called \enquote{ThemisML}\footnote{\url{https://github.com/ls1intum/Themis-ML}}. 
 Parts of this system will be useful for integrating programming feedback suggestions into Athene. ThemisML uses codeBERT~\cite{codeBERT} to compute pairwise similarity scores between submissions to suggest appropriate feedback suggestions. We will evaluate a variety of approaches for effectively segmenting, embedding and clustering programming exercises to improve on the efficiency and quality of the feedback suggestions and to integrate them into Athene.
 
 As automatic programming exercise feedback suggestions are not currently supported by Artemis, we also want to make those available in Artemis. Tutors should be able to accept or reject the suggestions in the web interface, similar to the existing automatic feedbacks on text exercises generated by Athene. Themis\footnote{\url{https://github.com/ls1intum/Themis}}, a new iPad app supporting grading of programming exercises, should also be able to use the programming feedback suggestions from Athene.
 
-By moving the actual choice of feedbacks from Artemis to Athene, we want to make it possible to use change the feedback suggestion independently of Artemis. Also, Athene should offer a more general API: Currently, it computes the feedback clusters and sends them to Artemis in a ProtoBuf format. A fixed interface contract for the API would make it easier to integrate Athene into other systems.
+By moving the actual choice of feedbacks from Artemis to Athene, we want to make it possible to change the feedback suggestion independently of Artemis. Also, Athene should offer a more general API: Currently, it computes the feedback clusters and sends them to Artemis in a ProtoBuf format. A fixed interface contract for the API would make it easier to integrate Athene into other systems in the future.
 
 
 \section*{Schedule}
@@ -122,20 +123,20 @@ By moving the actual choice of feedbacks from Artemis to Athene, we want to make
 The following schedule roughly outlines the work items for the thesis. It will start on March 15th, 2023 and last for 6 months, roughly 26 weeks. The schedule might be subject to change.
 
 \begin{itemize}
-    \item \textit{1 week:} Familiarize with the existing code base of Athene and Artemis, especially the feedback choice within Artemis.
+    \item \textit{1 week:} \textbf{Familiarize} with the existing code base of Athene and Artemis, especially the feedback choice within Artemis.
     \item \textit{4 weeks:} \textbf{Generalize} the existing microservices for segmentation, embedding and clustering in Athene: It should be possible to easily switch between internal modules.
     \item \textit{6 weeks:} \textbf{Move the actual choice of feedbacks} from Artemis to a new microservice within Athene: It should offer more general API endpoints for storing submissions, for storing feedbacks and for providing suggestions. Artemis should use these endpoints instead of the current ones.
     \begin{itemize}
-        \item \textit{2 weeks:} \textbf{Re-Implement} the new microservice in Athene. It should be possible to switch to any module for the feedback choice as for the other microservices as before. The selection should behave like it currently does in Artemis, but it should be written in Python instead of Java.
-        \item \textit{3 weeks:} \textbf{Replace} the current feedback choice in Artemis with the new microservice.
+        \item \textit{3 weeks:} \textbf{Re-implement} the new microservice in Athene. It should be possible to switch to any module for the feedback choice as for the other microservices as before. The selection should behave like it currently does in Artemis, but it should be written in Python instead of Java.
+        \item \textit{2 weeks:} \textbf{Replace} the current feedback choice in Artemis with the new microservice.
         \item \textit{1 week:} \textbf{Test} the new microservice and the changes in Artemis. Make sure that the functionality of Artemis is not affected by the changes.
     \end{itemize}
     \item \textit{Within the first 11 weeks:} \textbf{Evaluate} different possibilities for segmenting, embedding and clustering programming exercises. % Maybe this should be first?
     \item \textit{6 weeks:} Add support for \textbf{programming exercises} in Athene:
     \begin{itemize}
-        \item \textit{4 weeks:} Add support for programming exercise segmentation, embedding and clustering as well as feedback suggestion generation to Athene
-        \item \textit{1 week:} Implement communication between Artemis and Athene for programming exercises into Artemis
-        \item \textit{1 week:} Add support for displaying automatic feedback suggestions for programming exercises in Artemis
+        \item \textit{4 weeks:} Add support for programming exercise segmentation, embedding and clustering as well as feedback suggestion generation to Athene - based on prior research.
+        \item \textit{1 week:} Implement communication between Artemis and Athene for programming exercises into Artemis.
+        \item \textit{1 week:} Add support for displaying automatic feedback suggestions for programming exercises in Artemis.
     \end{itemize}
     \item \textit{2 weeks:} \textbf{Integrate} feedback suggestions \textbf{into the Themis iPad app}: It should be able to display the programming feedback suggestions from Athene.
     \item \textit{3 weeks:} Implement \textbf{improvements and bug fixes} still necessary for a stable release of Athene.
