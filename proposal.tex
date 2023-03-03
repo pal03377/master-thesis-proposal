@@ -32,6 +32,10 @@
 \fancyhead[RO]{\slshape \rightmark}
 \headheight=15pt
 
+% For wording consistency:
+% An "assessment" is a collection of feedbacks + credit scores
+% A "feedback" is a single feedback without a score
+
 %------- Start of Proposal -------
 \section*{Introduction}
 % - Introduce the reader to the general setting
@@ -42,13 +46,6 @@ The number of students in computer science courses at universities is steadily i
 These circumstances present a challenge for instructors, as providing feedback to all students individually can be difficult. There exist courses using automatically tested exercises, but those are often difficult to create and perfect. Manually graded exercises can provide more individuality, but it is difficult to provide feedback to all students.
 
 Artemis is an online learning platform for exercise management supporting automatic code testing for grading~\cite{ArTEMiS}. The Research Group for Applied Software Engineering at the Technical University of Munich is the main contributor to Artemis, but the system is also in use at several other universities.
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.8\linewidth]{figures/proposal/coffe-uml-activity-diagram.pdf}
-    \caption{UML Activity Diagram from~\cite{cofee}: Overview of the machine learning activities in Athene}
-    \label{fig:coffeeUmlActivityDiagram}
-\end{figure}
 
 Athene, a system for automatically generating feedback on text exercises, is integrated into Artemis~\cite{cofee}. It works by essentially clustering submissions into groups using machine learning techniques and then choosing feedback from the same cluster. The actual steps in the feedback generation process can be seen in~\cref{fig:coffeeUmlActivityDiagram}. In detail, they are~\cite{cofee}:
 \begin{itemize}
