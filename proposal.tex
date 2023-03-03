@@ -46,29 +46,12 @@
 
 % TODO: Briefly explain words from above within the text
 
-The number of students in computer science courses at universities is steadily increasing. At the Technical University of Munich, the number of full-time students\footnote{i.e., full-time equivalents} has recently increased by more than 2,400 within five year~\footnote{TUM in Zahlen 2020}. This growth also means that the number of exercise submissions in computer science courses has increased drastically.
-These circumstances present a challenge for instructors, as providing feedback to all students individually can be difficult. There exist courses using automatically tested exercises, but those are often difficult to create and perfect. Manually graded exercises can provide more individuality, but it is difficult to provide feedback to all students.
+The number of students in computer science courses at universities is steadily increasing. At the Technical University of Munich, the number of full-time students\footnote{i.e., full-time equivalents} has recently increased by more than 2,400 within five years~\footnote{TUM in Zahlen 2020, \url{https://mediatum.ub.tum.de/doc/1638190/1638190.pdf}}.
+These circumstances present a challenge for instructors, as providing feedback to all students individually can be difficult. Manually graded exercises can provide more individuality, but it is a difficult task to assess all submissions in a timely manner.
 
 Artemis is an online learning platform for exercise management supporting automatic code testing for grading~\cite{ArTEMiS}. The Research Group for Applied Software Engineering at the Technical University of Munich is the main contributor to Artemis, but the system is also in use at several other universities.
 
-Athene, a system for (semi-)automated assessment of text exercises\footnote{\url{https://github.com/ls1intum/Athena}}, is integrated into Artemis~\cite{cofee}. It works by essentially clustering submissions into groups using machine learning techniques and then choosing existing assessments from the same cluster. In detail, the actual steps in the assessment generation process are~\cite{cofee}:
-\begin{itemize}
-    \item \textbf{Segmentation} of the submission: Athene splits the submission into parts by topics. It identifies them using the presence or absence of certain keywords.
-    \item \textbf{Language Embedding} of the parts: Athene embeds the parts to a vector representation using a pre-trained ELMo language model~\cite{deepContextualizedWordRepresentations}.
-    \item \textbf{Clustering} of the vector representations: Athene clusters the vector representations using the Hierarchical Density-Based Spatial Clustering algorithm~\cite{hdbsc}.
-\end{itemize}
-
-All of these steps are currently performed in microservices, each of which is written in Python and implements one approach to its respective step~\cite{cofee}.
-In addition, there is a tracking service for logging the assessment generation process~\cite{atheneTracking} and a load balancer for distributing the load between the microservices~\cite{atheneLoadBalancer}.
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.8\linewidth]{figures/proposal/deployment-diagram.pdf}
-    \caption{Rough overview of the current Athene and Artemis deployment setup: The \textit{Athene Server} sends clusters to the \textit{Artemis Server} after the submission processing. The \textit{Athene Subsystem} chooses assessments based on these clusters. Tutors later access those assessments via the \textit{Artemis Server}.}
-    \label{fig:atheneArtemisDeployment}
-\end{figure}
-
-Currently, Athene sends a list of clusters and a list of segments to Artemis. Artemis then chooses assessments from the same cluster for the suggestions. The setup is also shown in~\cref{fig:atheneArtemisDeployment}.
+Athene, a system for (semi-)automated assessment of text exercises\footnote{\url{https://github.com/ls1intum/Athena}}, is integrated into Artemis~\cite{cofee}. Athene is a microservice-based system written in Python that generates \textit{suggestions} for \textit{assessments} of text exercise \textit{submissions}.
 
 
 \section*{Problem}
