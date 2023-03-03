@@ -47,7 +47,7 @@ These circumstances present a challenge for instructors, as providing feedback t
 
 Artemis is an online learning platform for exercise management supporting automatic code testing for grading~\cite{ArTEMiS}. The Research Group for Applied Software Engineering at the Technical University of Munich is the main contributor to Artemis, but the system is also in use at several other universities.
 
-Athene, a system for automatically generating feedback on text exercises, is integrated into Artemis~\cite{cofee}. It works by essentially clustering submissions into groups using machine learning techniques and then choosing feedback from the same cluster. The actual steps in the feedback generation process can be seen in~\cref{fig:coffeeUmlActivityDiagram}. In detail, they are~\cite{cofee}:
+Athene, a system for automatically generating feedback on text exercises, is integrated into Artemis~\cite{cofee}. It works by essentially clustering submissions into groups using machine learning techniques and then choosing feedback from the same cluster. In detail, the actual steps in the feedback generation process are~\cite{cofee}:
 \begin{itemize}
     \item \textbf{Segmentation} of the submission: Athene splits the submission into parts by topics. It identifies them using the presence or absence of certain keywords.
     \item \textbf{Language Embedding} of the parts: Athene embeds the parts to a vector representation using a pre-trained ELMo language model~\cite{deepContextualizedWordRepresentations}.
