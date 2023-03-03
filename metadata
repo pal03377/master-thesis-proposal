@@ -1,8 +1,8 @@
 \def\proposal{}
 \def\degree{Master}
 \def\program{Informatics}
-\def\title{Generalizing the Machine-Learning Based Exercise Feedback System in Athene}
-\def\titleGer{Generalisierung des Machine Learning Feedbacksystems für verschiedene Übungstypen in Athene}
+\def\title{Generalizing the Machine-Learning Based Exercise Assessment System in Athene}
+\def\titleGer{Generalisierung des Machine Learning Bewertungssystems für verschiedene Übungstypen in Athene}
 \def\supervisor{Prof. Dr. Stephan Krusche}
 \def\advisor{Maximilian Sölch, M.Sc.}
 \def\author{Paul Schwind}
