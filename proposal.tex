@@ -101,19 +101,31 @@ Furthermore, groundwork on a more flexible system might enable applying relative
 
 \section*{Objective}
 % - What are the main goals of your thesis?
-In the thesis, we want to enable Athene to support programming exercises and to generalize the steps in the feedback generation process. We will to do this in a way that does not affect the current functionality of Athene and does not introduce any new bugs.
+In the thesis, we want to enable Athene to support programming exercises and to generalize the steps in the feedback generation process. We will do this in a way that does not affect the current functionality of Athene and does not introduce any new bugs.
 
 % One of the advantages of having the possibility to choose dynamically between different ways of performing the steps in the feedback generation process is that it would allow us to switch them as necessary to implement feedback suggestions for programming exercises as well. 
 
-\subsection*{Programming Exercise Feedback Generation}
-As part of a project in the practical course \enquote{iPraktikum} at the Technical University of Munich, there already is a prototype for a system that can provide automatic feedback suggestions on programming exercises, called \enquote{ThemisML}\footnote{\url{https://github.com/ls1intum/Themis-ML}}. 
-Parts of this system will be useful for integrating programming feedback suggestions into Athene. ThemisML uses codeBERT~\cite{codeBERT} to compute pairwise similarity scores between submissions to suggest appropriate feedback suggestions. We will evaluate a variety of approaches for effectively segmenting, embedding and clustering programming exercises to improve on the efficiency and quality of the feedback suggestions and to integrate them into Athene.
-
-\subsection*{Showing Programming Feedback Suggestions in Artemis}
-Because Artemis currently does not support automatic programming exercise feedback suggestions, we also want to make those available in Artemis. Tutors should be able to accept or reject the suggestions in the web interface, similar to the existing automatic feedbacks on text exercises, which Athene generates. Themis\footnote{\url{https://github.com/ls1intum/Themis}}, a new iPad app supporting grading of programming exercises, should also be able to use the programming feedback suggestions from Athene.
-
 \subsection*{Generalization of the Feedback Generation Process}
 By moving the actual choice of feedbacks from Artemis to Athene, we want to make it possible to change the feedback suggestion independently of Artemis. Also, Athene should offer a more general API: Currently, it computes the feedback clusters and sends them to Artemis in a ProtoBuf format. A fixed interface contract for the API would make it easier to integrate Athene into other systems in the future.
+
+\subsection*{Programming Exercise Feedback Generation}
+We will extend Athene to support programming exercises. This will involve extensive analysis of the current state of the art in automatic feedback generation for programming exercises, as well as the development of new approaches for the steps in the feedback generation process. Additionally, we will deploy and test the new system to ensure its reliability and effectiveness.
+
+\subsection*{Adding Programming Feedback Suggestions to Artemis}
+Because Artemis currently does not support automatic programming exercise feedback suggestions, we also want to make those available in Artemis. Tutors should be able to accept or reject the suggestions in the web interface, similar to the existing automatic feedbacks on text exercises, which Athene generates. 
+
+\subsection*{Adding Programming Feedback Suggestions to Themis}
+
+Themis\footnote{\url{https://github.com/ls1intum/Themis}} is a new iPad app, which supports grading of programming exercises. The app was a project in the practical course \enquote{iPraktikum} at the Technical University of Munich.
+Themis will also be able to use the programming feedback suggestions from Athene. It should do so by only communicating with Artemis directly, which means that Themis will not need to communicate with Athene directly. This decreases the coupling between Themis and Athene and makes it easier to change the feedback generation system in the future.
+
+\subsection*{Iterating on Existing Work from ThemisML}
+Currently, Themis supports automatic feedback suggestions for programming exercises by using its own feedback generation system prototype, ThemisML\footnote{\url{https://github.com/ls1intum/Themis-ML}}.
+Parts of this system will be useful for integrating programming feedback suggestions into Athene. ThemisML uses codeBERT~\cite{codeBERT} to compute pairwise similarity scores between submissions to suggest appropriate feedback suggestions. We want to move this functionality into Athene to completely replace the current feedback generation system in ThemisML.
+
+\subsection*{Utilizing codeBERT for Feedback Generation}
+We will evaluate a variety of approaches for effectively segmenting, embedding and clustering programming exercises to improve on the efficiency and quality of the feedback suggestions and to integrate them into Athene.
+One of the main approaches we will evaluate is codeBERT~\cite{codeBERT}, which is a BERT model that was trained on code. Currently it is used in ThemisML to compute pairwise similarity scores between submissions. We will evaluate how it can be used in a more general feedback generation system.
 
 
 \section*{Schedule}
