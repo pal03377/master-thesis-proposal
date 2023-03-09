@@ -90,7 +90,13 @@ In the thesis, we want to enable Athene to support programming exercises and to 
 % One of the advantages of having the possibility to choose dynamically between different ways of performing the steps in the assessment generation process is that it would allow us to switch them as necessary to implement suggestions for programming exercises as well. 
 
 \subsection*{Generalization of the Assessment Generation Process}
-By moving the actual choice of assessments from Artemis to Athene, we want to make it possible to change the suggestions independently of Artemis. Also, Athene should offer a more general API: Currently, it computes the submission clusters and sends them to Artemis in a ProtoBuf format. A fixed interface contract for the API would make it easier to integrate Athene into other systems in the future.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\linewidth]{figures/proposal/aom.pdf}
+    \caption{Overview of the current Athene system (AOM diagram), inspired by an AOM diagram created by the CIT team of the iPraktikum, winter semester 2022/23. The \textit{AutomaticFeedbackFactory} will be generalized to support \textit{TextBlock}s from \textit{Submission}s as well as \textit{CodeBlock}s, and potentially more.}
+    \label{fig:aom}
+\end{figure}
+\noindent By moving the actual choice of assessments from Artemis to Athene, we want to make it possible to change the suggestions independently of Artemis. Also, Athene should offer a more general API: Currently, it computes the submission clusters and sends them to Artemis in a ProtoBuf format. A fixed interface contract for the API would make it easier to integrate Athene into other systems in the future. An overview of the new system is shown in~\cref{fig:aom}.
 
 \subsection*{Programming Exercise Assessment Generation}
 We will extend Athene to support programming exercises. This will involve extensive analysis of the current state of the art in automatic assessment generation for programming exercises, as well as the development of new approaches for the steps in the generation process. Additionally, we will deploy and test the new system to ensure its reliability and effectiveness.
