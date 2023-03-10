@@ -90,20 +90,18 @@ Furthermore, groundwork on a more flexible system might enable applying relative
 
 \section*{Objective}
 % - What are the main goals of your thesis?
-In the thesis, we want to enable Athene to support programming exercises and to generalize the steps in the assessment generation process. We will do this in a way that does not affect the current functionality of Athene and does not introduce any new bugs.
+In the thesis, we want to generalize the steps in the assessment generation process in Athene and to add support for programming exercises. We will do this in a way that does not affect the current functionality of Athene and does not introduce any new bugs.
 
 % One of the advantages of having the possibility to choose dynamically between different ways of performing the steps in the assessment generation process is that it would allow us to switch them as necessary to implement suggestions for programming exercises as well. 
 
-\subsection*{Generalization of the Accepted Submission Types}
+\subsection*{Generalize the Assessment Creation Process}
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=\linewidth]{figures/proposal/aom.pdf}
-    \caption{Overview of the current Athene system (AOM diagram), inspired by an AOM diagram created by the CIT team of the iPraktikum, winter semester 2022/23. The \textit{AutomaticFeedbackFactory} will be generalized to support \textit{TextBlock}s from \textit{Submission}s as well as \textit{CodeBlock}s, and potentially more.}
+    \includegraphics[width=0.9\linewidth]{figures/proposal/aom.pdf}
+    \caption{Overview of the current Athene system (AOM diagram), inspired by an AOM diagram created by the CIT team of the iPraktikum, winter semester 2022/23.}
     \label{fig:aom}
 \end{figure}
-\noindent By moving the actual choice of assessments from Artemis to Athene, we want to make it possible to change the suggestions independently of Artemis. Also, Athene should offer a more general API: Currently, it computes the submission clusters and sends them to Artemis in a ProtoBuf format. A fixed interface contract for the API would make it easier to integrate Athene into other systems in the future. It should be generally possible to process any type of submission with Athene. An overview of the new system is shown in~\cref{fig:aom}.
-
-\subsection*{Generalization of the Processing Steps}
+By moving the actual choice of assessments from Artemis to Athene, we want to make it possible to change the suggestions independently of Artemis. Also, Athene should offer a more general API: Currently, it computes the submission clusters and sends them to Artemis in a ProtoBuf format. A fixed interface contract for the API would make it easier to integrate Athene into other systems in the future. It should be generally possible to process any type of submission with Athene. An overview of the new system is shown in~\cref{fig:aom}.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\linewidth]{figures/proposal/deployment.pdf}
@@ -112,23 +110,18 @@ In the thesis, we want to enable Athene to support programming exercises and to 
 \end{figure}
 It should be possible to choose between different approaches for determining suggestions. For example, a LLM-based approach could be used for some exercises depending on configuration, while the current approach of clustering submissions could be used for others. The components of the targeted system and their deployment are shown in~\cref{fig:deployment}. The instructor of a course will be able to choose between the different suggestion generation possibilities.
 
-\subsection*{Programming Exercise Assessment Generation}
+\subsection*{Semi-Automatic Suggestions for Programming Submissions}
 We will extend Athene to support programming exercises. This will involve extensive analysis of the current state of the art in automatic assessment generation for programming exercises, as well as the development of new approaches for the steps in the generation process. Additionally, we will deploy and test the new system to ensure its reliability and effectiveness.
 Existing work on automatic programming exercise assessments~\cite{singh2013automated,messer2022grading} as well as work on automatic source code error detection~\cite{sourceCodeAssessment} might prove useful for this task.
-
-\subsection*{Adding Programming Exercise Suggestions to Artemis}
+%
 Because Artemis currently does not support automatic programming exercise suggestions, we also want to make those available in Artemis. Tutors should be able to accept or reject the suggestions in the web interface, similar to the existing automatic assessments on text exercises, which Athene generates. 
-
-\subsection*{Adding Programming Exercise Suggestions to Themis}
 
 Themis\footnote{\url{https://github.com/ls1intum/Themis}} is a new iPad app, which supports grading of programming exercises. The app was a project in the practical course \enquote{iPraktikum} at the Technical University of Munich.
 Themis will also be able to use the programming exercise suggestions from Athene. It should do so by only communicating with Artemis directly, which means that Themis will not need to communicate with Athene directly. This decreases the coupling between Themis and Athene and makes it easier to change the generation system in the future.
-
-\subsection*{Iterating on Existing Work from ThemisML}
+%
 Currently, Themis supports automatic suggestions for programming exercises by using its own assessment generation system prototype, ThemisML\footnote{\url{https://github.com/ls1intum/Themis-ML}}.
 Parts of this system will be useful for integrating programming exercise suggestions into Athene. ThemisML uses codeBERT~\cite{codeBERT} to compute pairwise similarity scores between submissions to suggest appropriate suggestions. We want to move this functionality into Athene to completely replace the current generation system in ThemisML.
 
-\subsection*{Utilizing codeBERT for Assessment Generation}
 We will evaluate a variety of approaches for effectively segmenting, embedding and clustering programming exercises to improve on the efficiency and quality of the suggestions and to integrate them into Athene.
 One of the main approaches we will evaluate is codeBERT~\cite{codeBERT}, which is a BERT model that was trained on code. Currently it is used in ThemisML to compute pairwise similarity scores between submissions. We will evaluate how it can be used in a more general assessment generation system.
 
