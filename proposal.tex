@@ -51,6 +51,7 @@ These circumstances present a challenge for instructors, as providing feedback t
 
 Artemis is an online learning platform for exercise management supporting automatic code testing for grading~\cite{ArTEMiS}. The Research Group for Applied Software Engineering at the Technical University of Munich is the main contributor to Artemis, but the system is also in use at several other universities.
 
+Hereafter, we will use the term \textit{submission} to refer to a single submission of a student, \textit{assessment} to refer to a collection of feedbacks and credit scores, and \textit{suggestion} to refer to an assessment that is suggested to a tutor.
 Athene, a system for (semi-)automated assessment of text exercises\footnote{\url{https://github.com/ls1intum/Athena}}, is integrated into Artemis~\cite{cofee}. Athene is a microservice-based system written in Python that generates \textit{suggestions} for \textit{assessments} of text exercise \textit{submissions}.
 
 
@@ -112,7 +113,7 @@ It should be possible to choose between different approaches for determining sug
 
 \subsection*{Programming Exercise Assessment Generation}
 We will extend Athene to support programming exercises. This will involve extensive analysis of the current state of the art in automatic assessment generation for programming exercises, as well as the development of new approaches for the steps in the generation process. Additionally, we will deploy and test the new system to ensure its reliability and effectiveness.
-Existing work on automatic assessment~\cite{singh2013automated,messer2022grading} as well as work on automatic source code error detection~\cite{sourceCodeAssessment} might prove useful for this task.
+Existing work on automatic programming exercise assessments~\cite{singh2013automated,messer2022grading} as well as work on automatic source code error detection~\cite{sourceCodeAssessment} might prove useful for this task.
 
 \subsection*{Adding Programming Exercise Suggestions to Artemis}
 Because Artemis currently does not support automatic programming exercise suggestions, we also want to make those available in Artemis. Tutors should be able to accept or reject the suggestions in the web interface, similar to the existing automatic assessments on text exercises, which Athene generates. 
@@ -157,7 +158,7 @@ The following schedule roughly outlines the work items for the thesis. It will s
     \item \textbf{Sprint 3 (Week 6--7)}: Suggestion Generation Analysis
     \begin{itemize}
         \item Thoroughly analyze the current implementation of the suggestion generation in Artemis.
-        \item Develop a small locally running prototype in Python that roughly resembles the current implementation.
+        \item Develop a small locally running prototype in Python that roughly resembles the current Java implementation.
     \end{itemize}
     \item \textbf{Sprint 4 (Week 7--9)}: Suggestion Creation Endpoint
     \begin{itemize}
