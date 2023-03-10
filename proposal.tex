@@ -137,24 +137,69 @@ One of the main approaches we will evaluate is codeBERT~\cite{codeBERT}, which i
 The following schedule roughly outlines the work items for the thesis. It will start on March 15th, 2023 and last for 6 months, roughly 26 weeks.
 
 \begin{itemize}
-    \item \textit{1 week:} \textbf{Familiarize} with the existing code base of Athene and Artemis, especially the assessment choice within Artemis.
-    \item \textit{4 weeks:} \textbf{Generalize} the existing microservices for segmentation, embedding and clustering in Athene: It should be possible to easily switch between internal modules.
-    \item \textit{6 weeks:} \textbf{Move the actual choice of assessments} from Artemis to a new microservice within Athene: It should offer more general API endpoints for storing submissions, for storing assessments and for providing suggestions. Artemis should use these endpoints instead of the current ones.
+    \item \textbf{Sprint 1 (Week 1--2)}: Requirements Gathering \& Preparation
     \begin{itemize}
-        \item \textit{3 weeks:} \textbf{Re-implement} the new microservice in Athene. It should be possible to switch to any module for the assessment choice as for the other microservices as before. The selection should behave like it currently does in Artemis, but we want to implement it in Python instead of Java.
-        \item \textit{2 weeks:} \textbf{Replace} the current assessment choice in Artemis with the new microservice.
-        \item \textit{1 week:} \textbf{Test} the new microservice and the changes in Artemis. Ensure that the changes do not affect the functionality of Artemis.
+        \item Create a requirements document for the new system.
+        \item Familiarize with the existing code base of Athene and Artemis, especially the assessment choice within Artemis.
+        \item Evaluate different approaches for automatic assessment generation for programming exercises.
     \end{itemize}
-    \item \textit{Within the first 11 weeks:} \textbf{Evaluate} different possibilities for segmenting, embedding and clustering programming exercises. % Maybe this should be first?
-    \item \textit{6 weeks:} Add support for \textbf{programming exercises} in Athene:
+    \item \textbf{Sprint 2 (Week 3--5)}: System Design Generalization
     \begin{itemize}
-        \item \textit{4 weeks:} Add support for programming exercise segmentation, embedding and clustering as well as suggestion generation to Athene - based on prior research.
-        \item \textit{1 week:} Implement communication between Artemis and Athene for programming exercises into Artemis.
-        \item \textit{1 week:} Add support for displaying automatic suggestions for programming exercises in Artemis.
+        \item Analyze the current architecture of Athene and evaluate alternatives.
+        \item Design an architecture for easily switching the code executed in each step by Athene.
+        \item Refactor the existing microservices to use the new architecture.
+        \item Verify that the new architecture works as before.
     \end{itemize}
-    \item \textit{2 weeks:} \textbf{Integrate} suggestions \textbf{into the Themis iPad app}: It should be able to display the programming exercise suggestions from Athene.
-    \item \textit{3 weeks:} Implement \textbf{improvements and bug fixes} still necessary for a stable release of Athene.
-    \item \textit{4 weeks:} Write \textbf{documentation and the (remaining) thesis} for the project.
+    \item \textbf{Sprint 3 (Week 6--7)}: Suggestion Generation Analysis
+    \begin{itemize}
+        \item Thoroughly analyze the current implementation of the suggestion generation in Artemis.
+        \item Develop a small locally running prototype in Python that roughly resembles the current implementation.
+    \end{itemize}
+    \item \textbf{Sprint 4 (Week 7--9)}: Suggestion Creation Endpoint
+    \begin{itemize}
+        \item Improve on the prototype from Sprint 3.
+        \item Design a new API endpoint for Athene that can be used to generate suggestions for programming exercises, with emphasis on modularity and extensibility.
+        \item Implement a new microservice in Athene for this endpoint.
+        \item Test the new microservice.
+    \end{itemize}
+    \item \textbf{Sprint 5 (Week 10--11)}: Suggestion Generation Refactoring in Artemis
+    \begin{itemize}
+        \item Refactor the current suggestion generation in Artemis to use the new endpoint, while keeping the current functionality.
+        \item Manually and automatically test the changes in Artemis.
+        \item Identify potential improvements for the new system.
+    \end{itemize}
+    %! 11-12
+    \item \textbf{Sprint 6 (Week 12--13)}: Suggestion Generation Improvements
+    \begin{itemize}
+        \item Identify issues and improvements to the new system. Implement them.
+        \item Add a new control in Artemis to switch between different suggestion generation systems.
+        \item Test the new system.
+    \end{itemize}
+    \item \textbf{Sprint 7 (Week 14--15)}: Evaluation of Automatic Processing of Programming Exercises
+    \begin{itemize}
+        \item Evaluate codeBERT as a possible approach for automatic assessment generation for programming exercises.
+        \item Evaluate other approaches for automatic assessment generation for programming exercises, also using the findings from Sprint 1.
+        \item Find the best way of segmenting the submissions, e.g. based on method blocks (like in ThemisML) or based on other metrics.
+    \end{itemize}
+    \item \textbf{Sprint 8 (Week 16--19)}: Support for Programming Exercises
+    \begin{itemize}
+        \item Add support for programming exercise segmentation, embedding and clustering as well as suggestion generation to Athene - based on prior research.
+        \item Gather data for the evaluation of the new system.
+        \item Evaluate the new system and compare it to ThemisML.
+    \end{itemize}
+    \item \textbf{Sprint 9 (Week 20--22)}: Displaying Suggestions in Artemis and Themis
+    \begin{itemize}
+        \item Add support for displaying automatic suggestions for programming exercises in Artemis.
+        \item Add support for displaying automatic suggestions for programming exercises in Themis.
+        \item Test the new systems.
+    \end{itemize}
+    \item \textbf{Sprint 10 (Week 23--26)}: Final Improvements, Documentation on How to Create New Assessment Generators and an Assessment Generator Template
+    \begin{itemize}
+        \item Improve on issues from previous sprints.
+        \item Create documentation on how to create new assessment generators. This should show how to connect to the interfaces provided by the new system within Athene, how to create a new assessment generator and how to test it.
+        \item Create a template for new assessment generators in Python.
+    \end{itemize}
+
 \end{itemize}
 
 
