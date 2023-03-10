@@ -78,7 +78,10 @@ Two types of actors could have problems with the current status of Athene:
 
 As student numbers will continue to rise (especially in Computer Science courses), the number of assessments which tutors have to make will increase as well. Extending Athene to support programming exercises would allow tutors to profit from its assessment generation capabilities and save them a lot of time.
 
-Generalizing each of the steps in the process would also allow developers to integrate additional approaches and features into Athene more easily.
+Others have already recognized the importance of automated assessment generation. For example, the MIT university already developed a system for automated feedback generation on programming assignments in 2013, which corrected 64\% of all submissions on average~\cite{singh2013automated}. However, the system needed access to a reference implementation of the assignment, which is not always available. 
+\textit{LetGrade} is another, more recent, automated grading system for prgramming assignments using machine learning techniques, but it does not generate feedback, but only the final grade~\cite{messer2022grading}.
+
+Generalizing each of the steps in the process in Athene would also allow developers to integrate additional approaches and features into Athene more easily.
 For example, we could replace the clustering step with a different clustering algorithm, which might improve the quality of the suggestions. Past work like an evaluation of the helpfulness of assessments from Athene~\cite{atheneTracking} or efforts to make it more language-independent~\cite{atheneLanguage} could also potentially have profited from more generalization.
 
 Furthermore, groundwork on a more flexible system might enable applying relatively new innovations like ChatGPT\footnote{\url{https://openai.com/blog/chatgpt}} to Athene, if the suggestion generation does not only support choosing existing assessments, but also generating new ones.
@@ -109,6 +112,7 @@ It should be possible to choose between different approaches for determining sug
 
 \subsection*{Programming Exercise Assessment Generation}
 We will extend Athene to support programming exercises. This will involve extensive analysis of the current state of the art in automatic assessment generation for programming exercises, as well as the development of new approaches for the steps in the generation process. Additionally, we will deploy and test the new system to ensure its reliability and effectiveness.
+Existing work on automatic assessment~\cite{singh2013automated,messer2022grading} as well as work on automatic source code error detection~\cite{sourceCodeAssessment} might prove useful for this task.
 
 \subsection*{Adding Programming Exercise Suggestions to Artemis}
 Because Artemis currently does not support automatic programming exercise suggestions, we also want to make those available in Artemis. Tutors should be able to accept or reject the suggestions in the web interface, similar to the existing automatic assessments on text exercises, which Athene generates. 
