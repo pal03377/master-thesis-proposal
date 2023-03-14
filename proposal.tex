@@ -8,6 +8,8 @@
 \usepackage[nolist]{acronym}
 \usepackage{csquotes}
 
+\usepackage{titlesec}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Begin of document
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -39,7 +41,7 @@
 % A "submission" is a single submission of a student
 
 %------- Start of Proposal -------
-\section*{Introduction}
+\section{Introduction}
 % - Introduce the reader to the general setting
 % - What is the environment?
 % - What are the tools in use?
@@ -55,7 +57,7 @@ Hereafter, we will use the term \textit{submission} to refer to a single submiss
 Athene, a system for (semi-)automated assessment of text exercises\footnote{\url{https://github.com/ls1intum/Athena}}, is integrated into Artemis~\cite{cofee}. Athene is a microservice-based system written in Python that generates \textit{suggestions} for \textit{assessments} of text exercise \textit{submissions}.
 
 
-\section*{Problem}
+\section{Problem}
 % - What is/are the problem(s)? 
 % - Identify the actors and use these to describe how the problem negatively influences them.
 % - Do not present solutions or alternatives yet!
@@ -71,7 +73,7 @@ For textual exercises, Athene currently provides suggestions for around 45\% of 
 Also, it is difficult for \textbf{developers} of Athene to integrate additional approaches and features into Athene, as the system is currently bound to one approach for each step in the generation process. 
 The code for the actual choice of assessment suggestions is part of Artemis (outside of Athene). This makes it impossible to change logic for the suggestion choice independently of Artemis.
 
-\section*{Motivation}
+\section{Motivation}
 %- Outline why it is important to solve the problem
 % - Again use the actors to present your solution, but don't be to specific
 % - Be visionary! 
@@ -88,13 +90,13 @@ For example, we could replace the clustering step with a different clustering al
 %
 Furthermore, groundwork on a more flexible system might enable applying relatively new innovations like ChatGPT\footnote{\url{https://openai.com/blog/chatgpt}} to Athene, if the suggestion generation does not only support choosing existing assessments, but also generating new ones.
 
-\section*{Objective}
+\section{Objective}
 % - What are the main goals of your thesis?
 In the thesis, we want to generalize the steps in the assessment generation process in Athene and to add support for programming exercises. We will do this in a way that does not affect the current functionality of Athene and does not introduce any new bugs.
 
 % One of the advantages of having the possibility to choose dynamically between different ways of performing the steps in the assessment generation process is that it would allow us to switch them as necessary to implement suggestions for programming exercises as well. 
 
-\subsection*{Generalize the Assessment Creation Process}
+\subsection{Generalize the Assessment Creation Process}
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\linewidth]{figures/proposal/aom.pdf}
@@ -110,7 +112,7 @@ By moving the actual choice of assessments from Artemis to Athene, we want to ma
 \end{figure}
 It should be possible to choose between different approaches for determining suggestions. For example, a LLM-based approach could be used for some exercises depending on configuration, while the current approach of clustering submissions could be used for others. The components of the targeted system are shown in~\cref{fig:component}. The instructor of a course will be able to choose between the different suggestion generation possibilities.
 
-\subsection*{Semi-Automatic Suggestions for Programming Submissions}
+\subsection{Semi-Automatic Suggestions for Programming Submissions}
 We will extend Athene to support programming exercises. This will involve extensive analysis of the current state of the art in automatic assessment generation for programming exercises, as well as the development of new approaches for the steps in the generation process. Additionally, we will deploy and test the new system to ensure its reliability and effectiveness.
 Existing work on automatic programming exercise assessments~\cite{singh2013automated,messer2022grading} as well as work on automatic source code error detection~\cite{sourceCodeAssessment} might prove useful for this task.
 %
@@ -126,7 +128,7 @@ We will evaluate a variety of approaches for effectively segmenting, embedding a
 One of the main approaches we will evaluate is codeBERT~\cite{codeBERT}, which is a BERT model that was trained on code. Currently it is used in ThemisML to compute pairwise similarity scores between submissions. We will evaluate how it can be used in a more general assessment generation system.
 
 
-\section*{Schedule}
+\section{Schedule}
 % - When will the thesis Start (Always 15th of Month) 
 % - Create a rough plan for your thesis (separate the time in sprints with a length of 2-4 Weeks)
 % - Each sprint should contain several work items - Again keep it high-level and make to keep your plan realistic
