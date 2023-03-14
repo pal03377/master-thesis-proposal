@@ -105,7 +105,7 @@ By moving the actual choice of assessments from Artemis to Athene, we want to ma
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\linewidth]{figures/proposal/component.pdf}
-    \caption{Overview of the components of the targeted system, based on~\cite{atheneLoadBalancer}. The details of the services to perform the calculations are omitted for clarity. Depending on the service, different parts of the system will be activated: For a LLM that directly generates feedback, only the activation of the \textit{Suggestions} component might be necessary. The \textit{Default Service} however, which behaves like the current Athene system, will require the activation of all components.}
+    \caption{Overview of the components of the targeted system, based on~\cite{atheneLoadBalancer}. The details of the services to perform the calculations are omitted for clarity. Depending on the service, different parts of the system will be activated.}
     \label{fig:component}
 \end{figure}
 It should be possible to choose between different approaches for determining suggestions. For example, a LLM-based approach could be used for some exercises depending on configuration, while the current approach of clustering submissions could be used for others. The components of the targeted system are shown in~\cref{fig:component}. The instructor of a course will be able to choose between the different suggestion generation possibilities.
