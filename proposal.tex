@@ -63,10 +63,10 @@ Athene, a system for (semi-)automated assessment of text exercises\footnote{\url
 
 Currently, Athene is bound to one approach for each step in the assessment generation process and only supports text submissions. This decreases the flexibility and extensibility of the system and is one of the main points we will improve in this thesis.
 On a more practical level, Athene does not support programming exercises, which are a common type of exercise in computer science courses. Support for programming exercises is one of the main advantages of Artemis over other exercise management systems (such as Moodle\footnote{\url{https://moodle.org}}), so it would be beneficial to extend Athene to support programming exercises as well.
-Support for automatic assessments of modeling exercises in Athene would also be beneficial. These are already possible using \textit{Compass}\footnote{No public documentation available -- the code can be found in Artemis in the Java code under \texttt{service/compass}.}
+Support for automatic assessments of modeling exercises in Athene would also be beneficial. These are already possible using \textit{Compass}~\cite{compass}.
 
 Two types of actors could have problems with the current status of Athene:
-\textbf{Tutors} in courses with manually graded programming exercises: They cannot profit from Athene's assessment generation capabilities, as Athene does not support programming exercises. This means that they won't get any automatically generated suggestions for programming exercises, which would save them a lot of time.
+\textbf{Tutors} in courses with manually graded programming exercises: They cannot profit from Athene's assessment generation capabilities, because Athene does not support programming exercises. This means that they won't get any automatically generated suggestions for programming exercises, which would save them a lot of time.
 For textual exercises, Athene currently provides suggestions for around 45\% of the submissions~\cite{cofee2}.
 Also, it is difficult for \textbf{developers} of Athene to integrate additional approaches and features into Athene, as the system is currently bound to one approach for each step in the generation process. 
 The code for the actual choice of assessment suggestions is part of Artemis (outside of Athene). This makes it impossible to change logic for the suggestion choice independently of Artemis.
