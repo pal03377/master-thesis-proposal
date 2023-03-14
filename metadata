@@ -1,8 +1,8 @@
 \def\proposal{}
 \def\degree{Master}
 \def\program{Informatics}
-\def\title{Generalizing the Creation of Machine-Learning-Based Assessment Suggestions for Student Submissions}
-\def\titleGer{Generalisierung der Erstellung von auf maschinellem Lernen basierenden Bewertungsvorschlägen für Studierendenabgaben}
+\def\title{Generalizing a Machine-Learning Based Assessment System for Student Submissions}
+\def\titleGer{Generalisierung eines ML-basierten Bewertungssystems für Studierendenabgaben}
 \def\supervisor{Prof. Dr. Stephan Krusche}
 \def\advisor{Maximilian Sölch, M.Sc.}
 \def\author{Paul Schwind}
