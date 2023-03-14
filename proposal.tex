@@ -50,7 +50,7 @@ The number of students in computer science courses at universities is steadily i
 These circumstances present a challenge for instructors, as providing feedback to all students individually can be difficult. Manually graded exercises can provide more individuality, but it is a difficult task to assess all submissions in a timely manner.
 
 Artemis is an online learning platform for exercise management supporting automatic code testing for grading~\cite{ArTEMiS}.
-
+%
 Hereafter, we will use the term \textit{submission} to refer to a single submission of a student, \textit{assessment} to refer to a collection of feedbacks and credit scores, and \textit{suggestion} to refer to an assessment that is suggested to a tutor.
 Athene, a system for (semi-)automated assessment of text exercises\footnote{\url{https://github.com/ls1intum/Athena}}, is integrated into Artemis~\cite{cofee}. Athene is a microservice-based system written in Python that generates \textit{suggestions} for \textit{assessments} of text exercise \textit{submissions}.
 
@@ -85,7 +85,7 @@ Others have already recognized the importance of automated assessment generation
 
 Generalizing each of the steps in the process in Athene would also allow developers to integrate additional approaches and features into Athene more easily.
 For example, we could replace the clustering step with a different clustering algorithm, which might improve the quality of the suggestions. Past work like an evaluation of the helpfulness of assessments from Athene~\cite{atheneTracking} or efforts to make it more language-independent~\cite{atheneLanguage} could also potentially have profited from more generalization.
-
+%
 Furthermore, groundwork on a more flexible system might enable applying relatively new innovations like ChatGPT\footnote{\url{https://openai.com/blog/chatgpt}} to Athene, if the suggestion generation does not only support choosing existing assessments, but also generating new ones.
 
 \section*{Objective}
