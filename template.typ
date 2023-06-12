@@ -2,7 +2,7 @@
   title: "",
   abstract: [],
   authors: (),
-  logo: none,
+  logo: "figures/InformaticsLogo.png",
   body,
 ) = {
   // Set the document's basic properties.
@@ -54,6 +54,17 @@ align(center)[
 
   // Main body.
   set par(justify: true)
+
+  // chapters
+  show heading.where(
+    level: 1
+  ): it => [
+      #pagebreak()
+      #set text(24pt)
+      Chapter X\
+      #set text(16pt)
+      #it.body
+  ]
 
   body
 }

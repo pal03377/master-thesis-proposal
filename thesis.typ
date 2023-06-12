@@ -80,11 +80,9 @@ _Note: If you leave out the section ``Current system'', you can rename this sect
 
 _Note: List and describe all functional requirements of your system. Also mention requirements that you were not able to realize. The short title should be in the form ``verb objective''_
 
-\begin{itemize}
-\item [FR1] *Short Title*: Short Description.
-\item [FR2] *Short Title*: Short Description.
-\item [FR3] *Short Title*: Short Description.
-\end{itemize}
+/ FR1 *Short Title*: Short Description.
+/ FR2 *Short Title*: Short Description.
+/ FR3 *Short Title*: Short Description.
 
 === Nonfunctional Requirements
 
